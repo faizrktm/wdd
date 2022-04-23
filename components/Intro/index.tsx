@@ -16,7 +16,7 @@ export default function Intro({ onChange }: IntroProps){
           <Image src="/images/swan.png" alt="swan" width={64} height={64} />
         </div>
         <h6 className="text-sm md:text-base tracking-widest text-wind mb-2">THE WEDDING OF</h6>
-        <h1 className="main-text text-4xl md:text-7xl lg:text-8xl text-primary mb-2.5">Faiz &amp; Rara</h1>
+        <h1 className="text-4xl md:text-7xl lg:text-8xl text-primary mb-2.5 font-amita">Faiz &amp; Rara</h1>
         <p className="text-xs md:text-base text-wind mb-3">Saturday, 20th August 2022</p>
         <Button text="Open Invitation" onClick={() => onChange(true)} type="primary" />
       </div>
