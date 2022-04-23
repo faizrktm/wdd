@@ -6,7 +6,7 @@ interface ButtonProps {
 
 const BUTTON_TYPE = {
   default: 'text-blackish bg-white',
-  primary: 'text-white bg-wheat'
+  primary: 'text-white bg-primary'
 }
 
 export default function Button({ text, onClick, type = 'default' }: ButtonProps){
