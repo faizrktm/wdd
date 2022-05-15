@@ -6,9 +6,9 @@ import Divider from "@/components/Divider"
 
 import styles from '@/components/Intro/Intro.module.css';
 
-export default function ThankYou(){
+export default function ThankYou() {
   return (
-    <Section className="bg-primary place-items-center pb-0 lg:px-0 px-0">
+    <Section className="bg-primary place-items-center !pb-0 !lg:px-0 !px-0">
       <div className="flex justify-center items-center md:mb-4">
         <Image src="/images/swan.png" className={styles.swanRotate} alt="swan" width={40} height={40} />
       </div>

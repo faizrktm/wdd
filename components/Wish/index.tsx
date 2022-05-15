@@ -1,5 +1,4 @@
 import Section from "@/components/Section"
-import { TextCenter } from "@/components/TextCenter"
 import Image from 'next/image';
 
 import styles from '@/components/Intro/Intro.module.css';
