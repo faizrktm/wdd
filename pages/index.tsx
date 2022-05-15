@@ -7,6 +7,9 @@ import Couple from '@/components/Couple';
 import SaveDate from '@/components/SaveDate';
 import Location from '@/components/Location';
 import ThankYou from '@/components/ThankYou';
+import Gallery from '@/components/Gallery';
+import HealthProtocol from '@/components/HealthProtocol';
+import Wish from '@/components/Wish';
 
 const Home: NextPage = () => {
   const [open, setOpen] = useState(false);
@@ -24,6 +27,9 @@ const Home: NextPage = () => {
       <SaveDate />
       <Location />
       <ThankYou />
+      <Gallery />
+      <HealthProtocol />
+      <Wish />
     </>
   );
 }

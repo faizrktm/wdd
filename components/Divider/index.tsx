@@ -2,6 +2,7 @@ export default function Divider({className}: {className?: string}){
   return (
     <div className={className} style={{
       overflow: 'hidden',
+      width: '100%'
     }}>
       <svg
         preserveAspectRatio="none"
