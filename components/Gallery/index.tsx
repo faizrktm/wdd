@@ -12,7 +12,7 @@ export default function Gallery(){
         <div className="flex justify-center items-center md:mb-4">
           <Image src="/images/swan.png" className={styles.swanRotate} alt="swan" width={40} height={40} />
         </div>
-        <h1 className="text-2xl md:text-base tracking-widest text-primary mb-3 font-cormorant font-bold">GALLERY</h1>
+        <h1 className="text-2xl md:text-base tracking-widest text-primary mb-3 font-cormorant font-bold">MOMEN BERHARGA</h1>
         <Images />
       </Section>
     </ModalProvider>
