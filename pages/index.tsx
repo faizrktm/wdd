@@ -10,6 +10,7 @@ import ThankYou from '@/components/ThankYou';
 import Gallery from '@/components/Gallery';
 import HealthProtocol from '@/components/HealthProtocol';
 import Wish from '@/components/Wish';
+import Video from '@/components/Gallery/Video';
 
 const Home: NextPage = () => {
   const [open, setOpen] = useState(false);
@@ -27,6 +28,7 @@ const Home: NextPage = () => {
       <SaveDate />
       <Location />
       <ThankYou />
+      <Video />
       <Gallery />
       <HealthProtocol />
       <Wish />
