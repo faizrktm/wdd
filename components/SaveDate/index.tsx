@@ -19,6 +19,12 @@ export default function SaveDate(){
         <p className="text-sm md:text-base text-blackish mb-1">Sabtu, 20 Agustus 2022</p>
         <p className="text-sm md:text-base text-blackish">Pukul 10.00 WIB</p>
       </div>
+      <div className="absolute top-0 left-0">
+        <Image src="/images/floral-2.png" width={200} height={200} />
+      </div>
+      <div className="absolute bottom-0 right-0">
+        <Image src="/images/floral-1.png" width={200} height={200} />
+      </div>
     </Section>
   )
 }

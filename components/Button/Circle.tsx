@@ -17,7 +17,7 @@ const BUTTON_TYPE = {
 
 export default function Button({ text, onClick, type = 'default', className }: ButtonProps) {
   return (
-    <button type="button" className={`text-sm md:text-base rounded py-2 px-6 tracking-wider ${BUTTON_TYPE[type]} ${className || ''}`} onClick={onClick}>
+    <button type="button" className={`relative drop-shadow-md rounded-full flex items-center justify-center ${BUTTON_TYPE[type]} ${className || ''}`} onClick={onClick}>
       {text}
     </button>
   )
