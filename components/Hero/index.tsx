@@ -2,7 +2,7 @@ import Divider from "@/components/Divider"
 
 export default function Hero(){
   return (
-    <div className="flex flex-col bg-primary w-screen h-[80vh] place-items-center bg-[url('/images/bg2-brown.jpg')] lg:bg-[url('/images/bg.jpg')] bg-cover bg-no-repeat bg-center">
+    <div className="flex flex-col bg-primary w-screen h-[80vh] place-items-center bg-[url('/images/prewed/Noisess126.jpg')] lg:bg-[url('/images/bg.jpg')] bg-cover bg-no-repeat bg-center">
       <div className="flex flex-col align-center justify-center mt-16">
         <h6 className="text-sm md:text-base tracking-widest text-white mb-2 text-center">PERNIKAHAN</h6>
         <div className="flex items-center justify-center pt-2.5 pb-2.5">
