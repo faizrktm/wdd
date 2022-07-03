@@ -5,27 +5,27 @@ import Image from 'next/image';
 const PROTOCOL_HEALTH = [
   {
     label: 'Tidak Berkerumun',
-    image: '/images/h-protocol/crowd.png',
+    image: '/images/h-protocol/brown/crowd.png',
   },
   {
     label: 'Menjaga Jarak Aman',
-    image: '/images/h-protocol/distance.png',
+    image: '/images/h-protocol/brown/distance.png',
   },
   {
     label: 'Tidak Berjabat Tangan',
-    image: '/images/h-protocol/handshake.png',
+    image: '/images/h-protocol/brown/handshake.png',
   },
   {
     label: 'Memakai masker',
-    image: '/images/h-protocol/mask.png',
+    image: '/images/h-protocol/brown/mask.png',
   },
   {
     label: 'Gunakan Sanitizer',
-    image: '/images/h-protocol/sanitize.png',
+    image: '/images/h-protocol/brown/sanitize.png',
   },
   {
     label: 'Mencuci Tangan',
-    image: '/images/h-protocol/wash.png',
+    image: '/images/h-protocol/brown/wash.png',
   }
 ]
 
@@ -43,7 +43,9 @@ export default function HealthProtocol(){
         {PROTOCOL_HEALTH.map(({ label, image }) => {
           return (
             <div className="flex flex-col items-center text-center">
-              <Image src={image} width={80} height={80} />
+              <div className="flex items-center justify-center relative w-[70px] h-[70px] bg-primary rounded-full">
+                <Image src={image} width={70} height={70} />
+              </div>
               <TextCenter className="text-blackish text-sm leading-6 mt-2">{label}</TextCenter>
             </div>
           )

@@ -1,5 +1,6 @@
 import Section from "@/components/Section"
 import { TextCenter } from "@/components/TextCenter"
+import Image from "next/image"
 
 export default function Couple(){
   return (
