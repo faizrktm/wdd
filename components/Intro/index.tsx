@@ -18,7 +18,7 @@ export default function Intro({ onChange }: IntroProps){
         <h6 className="text-sm md:text-base tracking-widest text-wind mb-2">PERNIKAHAN</h6>
         <div className="flex items-center justify-center pt-2.5 pb-2.5">
           <h1 className="text-4xl md:text-7xl lg:text-8xl text-primary font-lejour">Rara</h1>
-          <h1 className="text-4xl md:text-7xl lg:text-8xl text-primary font-amita px-1">&amp;</h1>
+          <h1 className="text-4xl md:text-7xl lg:text-8xl text-primary font-cursive px-1">&amp;</h1>
           <h1 className="text-4xl md:text-7xl lg:text-8xl text-primary font-lejour">Faiz</h1>
         </div>
         <p className="text-xs md:text-base text-wind mb-3">Sabtu, 20 Agustus 2022</p>
