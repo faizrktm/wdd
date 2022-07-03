@@ -6,7 +6,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'primary': '#5F7464',
+        'primary': '#9c8d7c',
         'blackish': '#383838',
         'rose': '#D4C8BE',
         'wind': '#ababab',
@@ -15,7 +15,10 @@ module.exports = {
       fontFamily: {
         'cormorant': ['Cormorant', 'serif'],
         'amita': ['Amita', 'cursive'],
+        'cursive': ['cursive', 'serif'],
         'poppins': ['Poppins', 'sans-serif'],
+        'daydream': ['Daydream', 'serif'],
+        'lejour': ['Lejour', 'serif']
       }
     },
   },
