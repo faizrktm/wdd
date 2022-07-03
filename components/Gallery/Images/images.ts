@@ -1,17 +1,26 @@
 export const images = [
   {
-    src: '/images/prewed/Noisess123.jpg',
-    width: 3,
-    height: 4,
+    src: '/images/prewed/Noisess113.jpg',
   },
   {
-    src: '/images/prewed/Noisess126.jpg',
-    width: 3,
-    height: 4,
+    src: '/images/prewed/Noisess123.jpg',
+  },
+  {
+    src: '/images/prewed/Noisess232.jpg',
+  },
+  {
+    src: '/images/prewed/Noisess189.jpg',
   },
   {
     src: '/images/prewed/Noisess163.jpg',
-    width: 3,
-    height: 5,
-  }
+  },
+  {
+    src: '/images/prewed/Noisess259.jpg',
+  },
+  {
+    src: '/images/prewed/Noisess271.jpg',
+  },
+  {
+    src: '/images/prewed/Noisess281.jpg',
+  },
 ];

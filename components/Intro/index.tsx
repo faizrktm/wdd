@@ -9,7 +9,7 @@ interface IntroProps {
 
 export default function Intro({ onChange }: IntroProps){
   return (
-    <div className="flex flex-col bg-primary h-screen w-screen place-items-center bg-[url('/images/bg2-1-brown.jpg')] lg:bg-[url('/images/bg.jpg')] bg-cover bg-no-repeat bg-center">
+    <div className="flex flex-col bg-primary h-screen w-screen place-items-center bg-[url('/images/bg-intro.jpg')] lg:bg-[url('/images/bg.jpg')] bg-cover bg-no-repeat bg-center">
       <div className="bg-white text-center w-5/6 rounded-lg p-8 md:p-16 bg-opacity-80 m-auto">
         <div className="flex justify-center items-center md:mb-4">
           <Image src="/images/swan.png" className={styles.swanRotate} alt="swan" width={64} height={64} />

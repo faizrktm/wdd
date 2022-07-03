@@ -2,7 +2,6 @@ import { Carousel } from 'react-responsive-carousel';
 import Image from 'next/image';
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import useShowModal from '@/components/Modal/hooks/useShowModal';
-import Gallery from 'react-photo-gallery';
 import { images } from './images';
 
 function ImagesModal({ selectedItem }: { selectedItem: number }){
@@ -10,7 +9,7 @@ function ImagesModal({ selectedItem }: { selectedItem: number }){
     <Carousel showArrows={false} className="w-full h-[60vh]" showIndicators showStatus={false} infiniteLoop selectedItem={selectedItem || 0}>
       {images.map((item, index) => (
         <div key={index} style={{ width: '100%', height: '60vh' }}>
-          <Image src={item.src} layout="fill" objectFit="cover" />
+          <Image src={item.src} layout="fill" objectFit="contain" />
         </div>
       ))}
     </Carousel>
