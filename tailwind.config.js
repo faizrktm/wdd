@@ -15,6 +15,7 @@ module.exports = {
       fontFamily: {
         'cormorant': ['Cormorant', 'serif'],
         'amita': ['Amita', 'cursive'],
+        'cursive': ['cursive', 'serif'],
         'poppins': ['Poppins', 'sans-serif'],
         'daydream': ['Daydream', 'serif'],
         'lejour': ['Lejour', 'serif']

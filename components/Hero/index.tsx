@@ -7,7 +7,7 @@ export default function Hero(){
         <h6 className="text-sm md:text-base tracking-widest text-white mb-2 text-center">PERNIKAHAN</h6>
         <div className="flex items-center justify-center pt-2.5 pb-2.5">
           <h1 className="text-4xl md:text-7xl lg:text-8xl text-white font-lejour">Rara</h1>
-          <h1 className="text-4xl md:text-7xl lg:text-8xl text-white font-amita font-light px-1">&amp;</h1>
+          <h1 className="text-4xl md:text-7xl lg:text-8xl text-white font-cursive font-light px-1">&amp;</h1>
           <h1 className="text-4xl md:text-7xl lg:text-8xl text-white font-lejour">Faiz</h1>
         </div>
         <p className="text-xs md:text-base text-white mb-3 text-center">Sabtu, 20 Agustus 2022</p>
