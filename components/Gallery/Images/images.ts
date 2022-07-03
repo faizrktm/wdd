@@ -23,16 +23,4 @@ export const images = [
   {
     src: '/images/prewed/Noisess281.jpg',
   },
-  {
-    src: '/images/prewed/lamaran-1.jpg',
-  },
-  {
-    src: '/images/prewed/lamaran-2.jpg',
-  },
-  {
-    src: '/images/prewed/lamaran-3.jpg',
-  },
-  {
-    src: '/images/prewed/lamaran-4.jpg',
-  },
 ];
