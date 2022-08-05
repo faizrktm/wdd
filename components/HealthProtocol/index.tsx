@@ -42,7 +42,7 @@ export default function HealthProtocol(){
       <div className="grid gap-4 grid-cols-3 grid-rows-2 mt-8">
         {PROTOCOL_HEALTH.map(({ label, image }) => {
           return (
-            <div className="flex flex-col items-center text-center">
+            <div className="flex flex-col items-center text-center" key={image}>
               <div className="flex items-center justify-center relative w-[70px] h-[70px] bg-primary rounded-full">
                 <Image src={image} width={70} height={70} />
               </div>
