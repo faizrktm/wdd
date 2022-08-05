@@ -13,8 +13,8 @@ function ModalContainer({ title, children, show = true, onClose, raw }: PropsWit
   const rawStyleModal = raw ? '' : 'bg-white rounded-lg shadow';
   return (
     <div tabIndex={-1} aria-hidden={show ? 'false' : 'true'} className={`${show ? '' : 'hidden'} overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full inset-0 h-modal bg-neutral-900/60`}>
-      <div className={`relative h-full w-full max-w-2xl flex align-center justify-center flex-col ${rawStyle}`}>
-          <div className={`relative w-full max-w-2xl h-min ${rawStyleModal}`}>
+      <div className={`relative h-full w-full flex align-center justify-center flex-col ${rawStyle}`}>
+          <div className={`relative w-full max-w-2xl self-center h-min ${rawStyleModal}`}>
             {!raw && (
                 <div className="flex justify-between items-start p-4 rounded-t border-b">
                   {title ?

@@ -4,7 +4,7 @@ import Image from "next/image"
 
 export default function Location(){
   return (
-    <Section className="bg-white">
+    <Section className="bg-white max-w-2xl self-center m-auto">
       <div className="bg-primary text-center w-5/6 rounded-lg p-8 bg-opacity-80 m-auto">
         <Image src="/images/wheat.png" alt="wheat" width={80} height={21} />
         <p className="text-2xl md:text-base tracking-widest text-white mb-3 font-cormorant font-bold">LOKASI</p>
