@@ -2,6 +2,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 
 const description = 'Hi, you are invited to our special day, come join us!';
 const title = 'Faiz & Rara Weddings';
+
 class MyDocument extends Document {
   render() {
     return (
@@ -9,7 +10,7 @@ class MyDocument extends Document {
         <Head>
           <title>{title}</title>
           <meta name='description' content={description} />
-          <meta property="og:title" content="{title}" />
+          <meta property="og:title" content={title} />
           <meta property="og:type" content="website" />
           <meta property="og:image" content="/images/meta.png" />
 
