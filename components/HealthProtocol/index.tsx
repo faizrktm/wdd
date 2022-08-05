@@ -36,13 +36,13 @@ export default function HealthProtocol(){
         <Image src="/images/swan.png" alt="swan" width={40} height={40} />
       </div>
       <h1 className="text-2xl md:text-base tracking-widest text-primary mb-3 font-cormorant font-bold">PROTOKOL KESEHATAN</h1>
-      <TextCenter className="text-blackish text-sm leading-6">
+      <TextCenter className="text-blackish text-sm leading-6 max-w-2xl">
         Tanpa mengurangi rasa hormat, acara pernikahan menerapkan protokol kesehatan sesuai anjuran pemerintah sebagai berikut
       </TextCenter>
       <div className="grid gap-4 grid-cols-3 grid-rows-2 mt-8">
         {PROTOCOL_HEALTH.map(({ label, image }) => {
           return (
-            <div className="flex flex-col items-center text-center">
+            <div className="flex flex-col items-center text-center" key={image}>
               <div className="flex items-center justify-center relative w-[70px] h-[70px] bg-primary rounded-full">
                 <Image src={image} width={70} height={70} />
               </div>

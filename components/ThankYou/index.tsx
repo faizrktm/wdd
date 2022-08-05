@@ -13,7 +13,7 @@ export default function ThankYou() {
         <Image src="/images/swan.png" className={styles.swanRotate} alt="swan" width={40} height={40} />
       </div>
       <h1 className="text-2xl md:text-base tracking-widest text-white mb-3 font-cormorant font-bold">WITH LOVE</h1>
-      <TextCenter className="text-white text-sm leading-6 mb-16 px-4 lg:px-12">
+      <TextCenter className="text-white text-sm leading-6 mb-16 px-4 lg:px-12 max-w-2xl">
         Merupakan suatu kehormatan &amp; kebahagiaan serta kesan yang mendalam bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan do'a restu kepada kami.
       </TextCenter>
       <Divider className="mt-auto" />

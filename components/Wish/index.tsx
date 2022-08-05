@@ -1,37 +1,67 @@
-import Section from "@/components/Section"
+import { useState } from 'react';
 import Image from 'next/image';
+import useSWR from 'swr';
+import dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import 'dayjs/locale/id';
+
+import Section from "@/components/Section"
 
 import styles from '@/components/Intro/Intro.module.css';
 import Button from "@/components/Button";
 
-export default function Wish(){
+import FormWish from './Form';
+
+dayjs.extend(relativeTime);
+dayjs.locale('id');
+
+interface WishProps {
+  guest: string;
+}
+
+const fetcher = (url) => fetch(url).then((res) => res.json());
+
+export default function Wish({ guest }: WishProps) {
+  const { data, error } = useSWR('/api/wish', fetcher);
+  const [showAll, setShowAll] = useState(false);
+
+  const w = data?.wishes || [];
+  const wishes = showAll ? w : w.slice(0, 10);
+
   return (
     <Section className="bg-primary place-items-center">
-      <div className="flex justify-center items-center md:mb-4">
-        <Image src="/images/swan.png" className={styles.swanRotate} alt="swan" width={40} height={40} />
-      </div>
-      <h1 className="text-2xl md:text-base tracking-widest text-white mb-3 font-cormorant font-bold">KIRIM UCAPAN</h1>
-      <label className="block flex flex-col w-full mb-4">
-        <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-white">
-          Nama
-        </span>
-        <input type="text" name="name" className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" />
-      </label>
-      <label className="block flex flex-col w-full">
-        <span className="after:content-['*'] after:ml-0.5 after:text-red-500 block text-sm font-medium text-white">
-          Ucapan
-        </span>
-        <textarea name="email" className="mt-1 px-3 py-2 bg-white border shadow-sm border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 block w-full rounded-md sm:text-sm focus:ring-1" placeholder="Selamat yaa!" />
-      </label>
-      <Button text="Kirim" className="mt-8 w-full" onClick={() => {}} />
+      <div className="w-full max-w-2xl">
+        <div className="flex justify-center items-center md:mb-4">
+          <Image src="/images/swan.png" className={styles.swanRotate} alt="swan" width={40} height={40} />
+        </div>
+        <h1 className="text-2xl md:text-base tracking-widest text-white mb-3 font-cormorant font-bold text-center">KIRIM UCAPAN</h1>
 
-      <div className="mt-16 w-full">
-        <div className="flex flex-col bg-blackish px-4 py-2 w-full rounded mb-4">
-          <p className="text-white text-lg">Faiz</p>
-          <p className="text-white">Selamat ya faiz dan rara! Semoga sakinah mawaddah warahmah!</p>
+        <FormWish guest={guest} />
+
+        <div className="mt-16 w-full">
+          {wishes.map(({ name, wish, id, created_at }) => {
+            const date = dayjs(created_at).fromNow();
+
+            return (
+              <div className="flex flex-col bg-blackish px-4 py-2 w-full rounded mb-4" key={id}>
+                <span className="flex items-center place-content-between">
+                  <p className="text-white text-lg">{name}</p>
+                  <p className="text-white text-xs">{date}</p>
+                </span>
+                <p className="text-white">{wish}</p>
+              </div>
+            )
+          })}
+
+          {wishes.length > 10 && !showAll && <Button text="Tampilkan semua" className="mt-4 w-full" onClick={() => setShowAll(true)} />}
+          {showAll && <Button text="Tampilkan lebih sedikit" className="mt-4 w-full" onClick={() => setShowAll(false)} />}
         </div>
 
-        <Button text="Tampilkan semua" className="mt-4 w-full" onClick={() => {}} />
+        {Boolean(error) && (
+          <div className="flex flex-col bg-red-700 px-4 py-2 w-full rounded mb-4">
+            <p className="text-lg text-center text-white">Oops maaf ya sedang ada gangguan!</p>
+          </div>
+        )}
       </div>
     </Section>
   )
