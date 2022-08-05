@@ -12,10 +12,10 @@ import HealthProtocol from '@/components/HealthProtocol';
 import Wish from '@/components/Wish';
 import FloatingButtons from '@/components/FloatingButtons';
 
-const Home: NextPage = () => {
+const Home: NextPage<{ guest?: string }> = ({ guest }) => {
   const [open, setOpen] = useState(false);
 
-  if(!open){
+  if(!open) {
     return (
       <Intro onChange={setOpen} />
     )
@@ -30,10 +30,19 @@ const Home: NextPage = () => {
       <ThankYou />
       <Gallery />
       <HealthProtocol />
-      <Wish />
+      <Wish guest={guest} />
       <FloatingButtons />
     </>
   );
 }
 
 export default Home;
+
+export async function getServerSideProps(context) {
+  const guest = context?.query?.['lovely_guest'];
+  return {
+    props: {
+      guest: guest || '',
+    },
+  }
+}
