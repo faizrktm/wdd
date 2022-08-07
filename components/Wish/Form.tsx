@@ -18,7 +18,7 @@ function FormWish({ guest, onSuccess }: FormWishProps) {
   const {name, wish} = payload;
 
   const { mutate, loading, error } = useMutation({
-    url: '/api/sendWish',
+    url: '/api/wish/post',
     validator: (payload) => {
       if (!payload.name){
         return 'Nama harus diisi';

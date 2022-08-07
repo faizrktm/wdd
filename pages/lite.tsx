@@ -14,7 +14,7 @@ import Meta from '@/components/Meta';
 import { GuestProvider } from '@/contexts/Guest';
 import supabase from '@/helper/supabase';
 
-const Home: NextPage<{ guest?: string, rsvp: boolean }> = ({ guest, rsvp }) => {
+const Home: NextPage<{ guest?: string, rsvp: number }> = ({ guest, rsvp }) => {
   const [open, setOpen] = useState(false);
 
   if(!open) {
@@ -27,7 +27,7 @@ const Home: NextPage<{ guest?: string, rsvp: boolean }> = ({ guest, rsvp }) => {
   }
 
   return (
-    <GuestProvider guest={guest || ''} rsvp={rsvp || false}>
+    <GuestProvider guest={guest || ''} rsvp={rsvp}>
       <Meta guest={guest} />
       <Hero />
       <Couple />
@@ -46,7 +46,7 @@ export default Home;
 export async function getServerSideProps(context) {
   const guest = context?.query?.['lovely_guest'];
 
-  let rsvp = false;
+  let rsvp = 0;
 
   if (guest) {
     try {

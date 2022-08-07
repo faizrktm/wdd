@@ -8,14 +8,52 @@ import { useGuest } from '@/contexts/Guest';
 import useMutation from "@/hooks/useMutation";
 import Alert from "@/components/Alert";
 
+interface RadioRsvpProps {
+  onChecked: (value: number) => void;
+}
+
+function RadioRsvp({onChecked}: RadioRsvpProps) {
+  return (
+    <ul className="grid gap-6 w-full md:grid-cols-3 mb-6">
+        <li>
+            <input type="radio" defaultChecked id="present" onChange={() => onChecked(1)} name="hosting" value="present" className="hidden peer" required />
+            <label htmlFor="present" className="inline-flex justify-between items-center p-4 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer peer-checked:border-green-600 peer-checked:text-green-600 hover:text-gray-600 hover:bg-gray-100">
+                <div className="block">
+                    <div className="w-full text-md font-semibold">Hadir!</div>
+                </div>
+                <span className="text-2xl">&#128513;</span>
+            </label>
+        </li>
+        <li>
+            <input type="radio" id="not-present" onChange={() => onChecked(2)} name="hosting" value="not-present" className="hidden peer" />
+            <label htmlFor="not-present" className="inline-flex justify-between items-center p-4 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer peer-checked:border-red-600 peer-checked:text-red-600 hover:text-gray-600 hover:bg-gray-100">
+                <div className="block">
+                    <div className="w-full text-md font-semibold">Tidak Hadir</div>
+                </div>
+                <span className="text-2xl">&#128557;</span>
+            </label>
+        </li>
+        <li>
+            <input type="radio" id="hesitate" onChange={() => onChecked(3)} name="hosting" value="hesitate" className="hidden peer" />
+            <label htmlFor="hesitate" className="inline-flex justify-between items-center p-4 w-full text-gray-500 bg-white rounded-lg border border-gray-200 cursor-pointer peer-checked:border-blue-600 peer-checked:text-blue-600 hover:text-gray-600 hover:bg-gray-100">
+                <div className="block">
+                    <div className="w-full text-md font-semibold">Ragu-ragu</div>
+                </div>
+                <span className="text-2xl">&#129300;</span>
+            </label>
+        </li>
+    </ul>
+  )
+}
+
 function ModalRsvp() {
   const { guest: g } = useGuest();
   const [guest, setGuest] = useState(g);
-  const [present, setPresent] = useState(true);
+  const [present, setPresent] = useState(1);
   const [success, setSuccess] = useState(false);
 
   const { mutate, loading, error } = useMutation({
-    url: '/api/rsvp',
+    url: '/api/rsvp/post',
     validator: (payload) => {
       if(!payload.name) return 'Maaf, nama harus diisi';
 
@@ -38,7 +76,7 @@ function ModalRsvp() {
 
   if(success) {
     let copyWriting = `Terima kasih ${guest}! kami tunggu kehadiran kamu ya, semoga sehat dan bahagia selalu!`;
-    if(!present) {
+    if(present !== 1) {
       copyWriting = `Terima kasih ${guest}! Semoga sehat dan bahagia selalu!`;
     }
     return (
@@ -63,10 +101,7 @@ function ModalRsvp() {
       </label>
       ) : <p className="mb-4">Silahkan konfirmasi kehadiranmu, {guest}.</p>}
 
-      <div className="flex items-center mb-6">
-        <input id="present" type="checkbox" defaultChecked onChange={e => setPresent(Boolean(e?.target?.checked))} className="w-4 h-4 text-blue-600 bg-gray-100 rounded border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" />
-        <label htmlFor="present" className="ml-2 text-sm font-medium text-gray-900">Saya Bisa Hadir</label>
-      </div>
+      <RadioRsvp onChecked={(value: number) => { setPresent(value) }} />
 
       <Button loading={loading} text="Konfirmasi Kehadiran" type="primary" onClick={handleConfirm} className="w-full max-w-2xl" />
     </div>
@@ -77,9 +112,9 @@ function ModalRsvp() {
 function ButtonRsvp(){
   const showModal = useShowModal();
 
-  const { rsvp, guest } = useGuest();
+  const { rsvpString, guest } = useGuest();
 
-  if (rsvp) {
+  if (rsvpString === 'yes') {
     return (
       <div className="text-center flex flex-col items-center justify-center">
         <p className="text-sm mb-2 text-white">Terima kasih {guest}! kami tunggu kehadiran kamu ya!</p>
@@ -88,6 +123,16 @@ function ButtonRsvp(){
           const newWindow = window.open('https://wa.me/6282282817744', '_blank', 'noopener,noreferrer');
           if (newWindow) newWindow.opener = null;
         }} className="mb-4" />
+      </div>
+    )
+  }
+
+  if (rsvpString === 'no' || rsvpString === 'hesitate') {
+    return (
+      <div className="text-center flex flex-col items-center justify-center">
+        <p className="text-sm mb-2 text-white">Terima kasih {guest} atas konfirmasinya!</p>
+        <p className="text-sm mb-6 text-white">Jika kamu berubah pikiran, silahkan konfirmasi kembali ya!</p>
+        <Button text="RSVP" onClick={() => showModal(<ModalRsvp />)} className="mb-8 mx-auto text-lg w-full md:w-auto" />
       </div>
     )
   }

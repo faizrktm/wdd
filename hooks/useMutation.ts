@@ -30,7 +30,12 @@ export default function useMutation({ url, validator }: MutationProps){
           payload,
         )
       });
+
       const response = await res.json();
+
+      if(!res.ok) {
+        throw new Error(response.message);
+      }
 
       setStatus('idle');
 

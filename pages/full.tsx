@@ -16,7 +16,7 @@ import FloatingButtons from '@/components/FloatingButtons';
 import Meta from '@/components/Meta';
 import { GuestProvider } from '@/contexts/Guest';
 
-const Home: NextPage<{ guest?: string, rsvp: boolean }> = ({ guest, rsvp }) => {
+const Home: NextPage<{ guest?: string, rsvp: number }> = ({ guest, rsvp }) => {
   const [open, setOpen] = useState(false);
 
   if(!open) {
@@ -48,7 +48,7 @@ export default Home;
 
 export async function getServerSideProps(context) {
   const guest = context?.query?.['lovely_guest'];
-  let rsvp = false;
+  let rsvp = 0;
 
   if (guest) {
     try {
