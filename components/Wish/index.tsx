@@ -22,7 +22,7 @@ interface WishProps {
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export default function Wish({ guest }: WishProps) {
-  const { data, error, mutate } = useSWR('/api/wish', fetcher);
+  const { data, error, mutate } = useSWR('/api/wish/list', fetcher);
   const [showAll, setShowAll] = useState(false);
 
   const w = data?.wishes || [];

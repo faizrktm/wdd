@@ -1,4 +1,4 @@
-import Supabase from '../../helper/supabase';
+import Supabase from '../../../helper/supabase';
 
 export default function handler(_, res) {
   return Supabase.wishes()

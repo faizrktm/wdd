@@ -37,11 +37,11 @@ class Supabase {
     return data;
   }
 
-  async sendRsvp({ name }: { name: string }) {
+  async sendRsvp({ name, present }: { name: string, present: boolean }) {
     const { data, error } = await this.supabase
       .from('rsvp')
       .insert([
-        { name },
+        { name, present },
       ]);
 
     if(error){
@@ -54,8 +54,9 @@ class Supabase {
   async checkRsvp(name: string) {
     const { data, error } = await this.supabase
       .from('rsvp')
-      .select('name,cancelled')
-      .eq('name', name);
+      .select('name,present')
+      .eq('name', name)
+      .order('created_at', { ascending: false });
 
     if(error){
       throw new Error(error.message);

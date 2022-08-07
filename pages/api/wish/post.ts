@@ -1,4 +1,4 @@
-import Supabase from '../../helper/supabase';
+import Supabase from '../../../helper/supabase';
 
 export default function handler(req, res) {
   if(req.method !== 'POST') {
@@ -17,8 +17,8 @@ export default function handler(req, res) {
   }
 
   return Supabase.sendWishes({ name, wish })
-    .then(() => {
-      return res.status(200).json({ success: true });
+    .then((data) => {
+      return res.status(200).json({ success: true, wish: data });
     }).catch(err => {
       return res.status(500).json({ message: err.message });
     });
