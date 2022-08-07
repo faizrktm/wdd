@@ -53,7 +53,7 @@ export default function Wish({ guest }: WishProps) {
             )
           })}
 
-          {wishes.length > 10 && !showAll && <Button text="Tampilkan semua" className="mt-4 w-full" onClick={() => setShowAll(true)} />}
+          {wishes.length >= 10 && !showAll && <Button text="Tampilkan semua" className="mt-4 w-full" onClick={() => setShowAll(true)} />}
           {showAll && <Button text="Tampilkan lebih sedikit" className="mt-4 w-full" onClick={() => setShowAll(false)} />}
         </div>
 
