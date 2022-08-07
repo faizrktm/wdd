@@ -23,8 +23,8 @@ class Supabase {
     return wishes;
   }
 
-  async setWishes({ name, wish }: { name: string, wish: string }) {
-    const { error } = await this.supabase
+  async sendWishes({ name, wish }: { name: string, wish: string }) {
+    const { data, error } = await this.supabase
       .from('wishes')
       .insert([
         { name, wish },
@@ -34,7 +34,34 @@ class Supabase {
       throw new Error(error.message);
     }
 
-    return true;
+    return data;
+  }
+
+  async sendRsvp({ name }: { name: string }) {
+    const { data, error } = await this.supabase
+      .from('rsvp')
+      .insert([
+        { name },
+      ]);
+
+    if(error){
+      throw new Error(error.message);
+    }
+
+    return data;
+  }
+
+  async checkRsvp(name: string) {
+    const { data, error } = await this.supabase
+      .from('rsvp')
+      .select('name,cancelled')
+      .eq('name', name);
+
+    if(error){
+      throw new Error(error.message);
+    }
+
+    return data;
   }
 }
 
