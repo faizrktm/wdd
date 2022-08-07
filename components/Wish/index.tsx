@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import Image from 'next/image';
 import useSWR from 'swr';
 import dayjs from 'dayjs';
@@ -19,14 +19,18 @@ interface WishProps {
   guest: string;
 }
 
-const fetcher = (url) => fetch(url).then((res) => res.json());
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
 export default function Wish({ guest }: WishProps) {
-  const { data, error } = useSWR('/api/wish', fetcher);
+  const { data, error, mutate } = useSWR('/api/wish', fetcher);
   const [showAll, setShowAll] = useState(false);
 
   const w = data?.wishes || [];
   const wishes = showAll ? w : w.slice(0, 10);
+
+  const onSuccess = useCallback(() => {
+    mutate();
+  }, [mutate])
 
   return (
     <Section className="bg-primary place-items-center">
@@ -36,7 +40,7 @@ export default function Wish({ guest }: WishProps) {
         </div>
         <h1 className="text-2xl md:text-base tracking-widest text-white mb-3 font-cormorant font-bold text-center">KIRIM UCAPAN</h1>
 
-        <FormWish guest={guest} />
+        <FormWish guest={guest} onSuccess={onSuccess} />
 
         <div className="mt-16 w-full">
           {wishes.map(({ name, wish, id, created_at }) => {
