@@ -55,7 +55,8 @@ class Supabase {
     const { data, error } = await this.supabase
       .from('rsvp')
       .select('name,present')
-      .eq('name', name);
+      .eq('name', name)
+      .order('created_at', { ascending: false });
 
     if(error){
       throw new Error(error.message);
