@@ -53,7 +53,7 @@ export async function getServerSideProps(context) {
       const r = await supabase.checkRsvp(guest);
       const data = r?.[0];
       if(data && data.name === guest){
-        rsvp = !data.cancelled;
+        rsvp = data.present;
       }
     } catch (error) {
       console.error(error.message);
