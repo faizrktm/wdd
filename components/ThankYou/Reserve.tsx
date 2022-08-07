@@ -116,7 +116,7 @@ function ButtonRsvp(){
 
   if (rsvpString === 'yes') {
     return (
-      <div className="text-center flex flex-col items-center justify-center">
+      <div className="text-center flex flex-col items-center justify-center px-4">
         <p className="text-sm mb-2 text-white">Terima kasih {guest}! kami tunggu kehadiran kamu ya!</p>
         <p className="text-sm mb-6 text-white">Namun, jika kamu berhalangan hadir, hubungi kami dengan menekan tombol dibawah ini.</p>
         <Button text="Hubungi Kami" onClick={() => {
@@ -129,7 +129,7 @@ function ButtonRsvp(){
 
   if (rsvpString === 'no' || rsvpString === 'hesitate') {
     return (
-      <div className="text-center flex flex-col items-center justify-center">
+      <div className="text-center px-4 flex flex-col items-center justify-center">
         <p className="text-sm mb-2 text-white">Terima kasih {guest} atas konfirmasinya!</p>
         <p className="text-sm mb-6 text-white">Jika kamu berubah pikiran, silahkan konfirmasi kembali ya!</p>
         <Button text="RSVP" onClick={() => showModal(<ModalRsvp />)} className="mb-8 mx-auto text-lg w-full md:w-auto" />
