@@ -117,12 +117,7 @@ function ButtonRsvp(){
   if (rsvpString === 'yes') {
     return (
       <div className="text-center flex flex-col items-center justify-center px-4">
-        <p className="text-sm mb-2 text-white">Terima kasih {guest}! kami tunggu kehadiran kamu ya!</p>
-        <p className="text-sm mb-6 text-white">Namun, jika kamu berhalangan hadir, hubungi kami dengan menekan tombol dibawah ini.</p>
-        <Button text="Hubungi Kami" onClick={() => {
-          const newWindow = window.open('https://wa.me/6282282817744', '_blank', 'noopener,noreferrer');
-          if (newWindow) newWindow.opener = null;
-        }} className="mb-4" />
+        <p className="text-sm mb-2 text-white">Terima kasih {guest} atas konfirmasinya! kami tunggu kehadiran kamu ya!</p>
       </div>
     )
   }
