@@ -12,6 +12,7 @@ export default function Meta({ guest }: { guest?: string }) {
       <meta property="og:type" content="website" />
       <meta property="og:description" content={description} />
       <meta property="og:image" content="https://www.faiz-rara-for.life/images/meta-new.png" />
+      <meta property="og:type" content="website" />
 
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
