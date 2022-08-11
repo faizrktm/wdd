@@ -1,20 +1,19 @@
 import type { NextPage } from 'next';
 import {useState} from 'react';
+import dynamic from 'next/dynamic'
 
 import supabase from '@/helper/supabase';
 
 import Intro from '@/components/Intro';
-import Hero from '@/components/Hero';
-import Couple from '@/components/Couple';
-import SaveDate from '@/components/SaveDate';
-import Location from '@/components/Location';
-import ThankYou from '@/components/ThankYou';
-import Gallery from '@/components/Gallery';
-import HealthProtocol from '@/components/HealthProtocol';
-import Wish from '@/components/Wish';
-import FloatingButtons from '@/components/FloatingButtons';
 import Meta from '@/components/Meta';
 import { GuestProvider } from '@/contexts/Guest';
+import Loading from '@/components/Steps/Loading';
+
+const Second = dynamic(() => import('@/components/Steps/Second'), {
+  loading: Loading,
+  ssr: false,
+});
+
 
 const Home: NextPage<{ guest?: string, rsvp: number }> = ({ guest, rsvp }) => {
   const [open, setOpen] = useState(false);
@@ -30,16 +29,7 @@ const Home: NextPage<{ guest?: string, rsvp: number }> = ({ guest, rsvp }) => {
 
   return (
     <GuestProvider guest={guest || ''} rsvp={rsvp}>
-      <Meta guest={guest} />
-      <Hero />
-      <Couple />
-      <SaveDate />
-      <Location />
-      <ThankYou />
-      <Gallery />
-      <HealthProtocol />
-      <Wish guest={guest} />
-      <FloatingButtons />
+      <Second />
     </GuestProvider>
   );
 }
