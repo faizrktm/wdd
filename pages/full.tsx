@@ -21,10 +21,10 @@ const Home: NextPage<{ guest?: string, rsvp: number }> = ({ guest, rsvp }) => {
 
   if(!open) {
     return (
-      <>
+      <GuestProvider guest={guest || ''} rsvp={rsvp}>
         <Meta guest={guest} />
         <Intro onChange={setOpen} />
-      </>
+      </GuestProvider>
     )
   }
 
