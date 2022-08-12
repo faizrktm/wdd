@@ -15,7 +15,7 @@ const banks: Bank[] = [
   },
   {
     bankName: 'BRI',
-    accountNumber: 321321321321,
+    accountNumber: 110701007681505,
     accountName: 'Eindita Septiara'
   },
 ]
