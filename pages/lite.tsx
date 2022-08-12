@@ -27,7 +27,7 @@ const Home: NextPage<{ guest?: string, rsvp: number }> = ({ guest, rsvp }) => {
 
   return (
     <GuestProvider guest={guest || ''} rsvp={rsvp}>
-      <Second />
+      <Second withPhoto={false} />
     </GuestProvider>
   );
 }

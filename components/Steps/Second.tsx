@@ -8,9 +8,10 @@ import Wish from '@/components/Wish';
 import FloatingButtons from '@/components/FloatingButtons';
 import Meta from '@/components/Meta';
 import { useGuest } from '@/contexts/Guest';
+import Gallery from '@/components/Gallery';
 
 
-export default function Second(){
+export default function Second({ withPhoto }: { withPhoto: boolean }){
   const {guest} = useGuest();
   return (
     <>
@@ -20,6 +21,7 @@ export default function Second(){
       <SaveDate />
       <Location />
       <ThankYou />
+      {withPhoto && <Gallery />}
       <HealthProtocol />
       <Wish guest={guest} />
       <FloatingButtons />
