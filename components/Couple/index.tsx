@@ -14,7 +14,7 @@ export default function Couple(){
       <div>
         <div>
           <TextCenter className="mb-2 font-amita text-2xl text-blackish">Eindita Septiara</TextCenter>
-          <TextCenter className="mb-2 text-blackish text-sm">Putri pertama dari Bapak H. Nikita Saladin S.H. dan Hj. Ibu Herita</TextCenter>
+          <TextCenter className="mb-2 text-blackish text-sm">Putri pertama dari Bapak H. Nikita Saladin dan Hj. Ibu Herita</TextCenter>
         </div>
         <TextCenter className="my-4 font-cormorant font-bold text-5xl text-primary">&amp;</TextCenter>
         <div>
