@@ -49,10 +49,10 @@ export default function Wish({ guest }: WishProps) {
             return (
               <div className="flex flex-col bg-blackish px-4 py-2 w-full rounded mb-4" key={id}>
                 <span className="flex items-center place-content-between">
-                  <p className="text-white text-lg">{name}</p>
+                  <p className="text-white text-lg max-w-[70%] overflow-hidden text-ellipsis whitespace-nowrap">{name}</p>
                   <p className="text-white text-xs">{date}</p>
                 </span>
-                <p className="text-white font-thin text-sm leading-6">{wish}</p>
+                <p className="text-white font-thin text-sm leading-6 mt-1">{wish}</p>
               </div>
             )
           })}
