@@ -9,7 +9,7 @@ export default function Couple(){
 
       <TextCenter className="mb-4 text-blackish">Assalamu'alaikum Wr. Wb.</TextCenter>
 
-      <TextCenter className="mb-8 max-w-lg text-blackish text-sm">Dengan memanjatkan puji dan syukur ke hadirat Allah SWT, serta dengan memohon Ridho-Nya kami bermaksud mengadakan acara pernikahan putra-putri kami:</TextCenter>
+      <TextCenter className="mb-8 max-w-lg text-blackish text-sm">Dengan memanjatkan puji dan syukur kehadirat Allah SWT, serta dengan memohon Ridho-Nya kami bermaksud mengadakan acara pernikahan putra-putri kami:</TextCenter>
 
       <div>
         <div>
