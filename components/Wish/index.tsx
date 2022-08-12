@@ -52,7 +52,7 @@ export default function Wish({ guest }: WishProps) {
                   <p className="text-white text-lg">{name}</p>
                   <p className="text-white text-xs">{date}</p>
                 </span>
-                <p className="text-white">{wish}</p>
+                <p className="text-white font-thin text-sm leading-6">{wish}</p>
               </div>
             )
           })}
