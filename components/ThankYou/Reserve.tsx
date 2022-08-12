@@ -127,14 +127,14 @@ function ButtonRsvp(){
       <div className="text-center px-4 flex flex-col items-center justify-center">
         <p className="text-sm mb-2 text-white">Terima kasih {guest} atas konfirmasinya!</p>
         <p className="text-sm mb-6 text-white">Jika kamu berubah pikiran, silahkan konfirmasi kembali ya!</p>
-        <Button text="RSVP" onClick={() => showModal(<ModalRsvp />)} className="mb-8 mx-auto text-lg w-full md:w-auto" />
+        <Button text="KONFIRMASI KEHADIRAN" onClick={() => showModal(<ModalRsvp />)} className="mb-8 mx-auto text-lg w-full md:w-auto" />
       </div>
     )
   }
 
   return (
     <div className="px-4 text-center flex flex-col items-center justify-center">
-      <Button text="RSVP" onClick={() => showModal(<ModalRsvp />)} className="mb-8 mx-auto text-lg w-full md:w-auto" />
+      <Button text="KONFIRMASI KEHADIRAN" onClick={() => showModal(<ModalRsvp />)} className="mb-8 mx-auto text-lg w-full md:w-auto" />
     </div>
   )
 }
